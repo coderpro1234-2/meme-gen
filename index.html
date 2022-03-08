@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meme Creator</title>
+    <style>
+    #meme_btext {
+      background-color: transparent;
+      font-size: 40px;
+      font-family: "Impact";
+      color: white;
+      text-shadow: black 0px 0px 10px;
+      width: 100%;
+      position: absolute;
+      top: 580px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+    #meme_ttext {
+      background-color: transparent;
+      font-size: 40px;
+      font-family: "Impact";
+      color: white;
+      text-shadow: black 0px 0px 10px;
+      width: 100%;
+      position: absolute;
+      top: 180px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+    </style>
+    <script>
+      function update_ttext() {
+        document.getElementById("meme_ttext").innerHTML = document.getElementById("top_text").value
+      }
+      function update_btext() {
+        document.getElementById("meme_btext").innerHTML = document.getElementById("bottom_text").value
+      }
+      function update_image() {
+        var img = document.querySelector('img');
+        var file = document.querySelector('input[type=file]').files[0];
+        img.src =  window.URL.createObjectURL(file);
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+      <h3>Meme Creator:</h3>
+      <form>
+        Top Text: <input type="text" id="top_text" maxlength="70" oninput="update_ttext()"><br><br>
+          Bottom Text: <input type="text" id="bottom_text" maxlength="70" oninput="update_btext()"><br><br>
+          Select A Picture: <input type="file" id="picture" maxlength="70" onchange="update_image()">
+      </form>
+      <div id="meme">
+        <div id="meme_ttext">Example text here</div>
+        <div id="meme_btext">Example text here</div>
+        <div id="meme_picture"><img src="" height="500" width="600"></div>
+      </div>
+      </center>
+  </body>
+</html>
